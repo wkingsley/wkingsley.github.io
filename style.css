@@ -143,27 +143,10 @@ h2#education_title {
     margin-top: 20px;
 }
 
-ul li#gh_icon:hover {
-	transition: all .5s, transform .5s;
-}
-
-ul li#gh_icon:hover {
-	opacity: 0.5;
-	/*-webkit-transform: rotate(360deg);*/
-	transform: rotate(360deg);
-}
-
-/*ul li#lk_icon:hover {
-	transition: all .5s, transform .5s;
-}*/
-
-ul li#lk_icon:hover {
+ul li#gh_icon:hover, ul li#lk_icon:hover {
+	transition: all .5s;
 	opacity: 0.5;
 	transform: rotate(360deg);
 }
 
-/*.footer {
-	background-color: #CEADAB; #504d50;
-	height: 10%;
-	//padding-top: 50px;
-}*/
+

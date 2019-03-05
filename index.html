@@ -533,18 +533,12 @@
         <div class="row contact">
 
           <div class="col-md-offset-1 col-md-5">
-            <form id="myContact" name="myForm" method="post">
-              <div class="alert alert-success" role="alert" id="feedback_success"></div>
-              <div class="alert alert-danger" role="alert" id="feedback_error"></div>
-              <!--<?php //if (isset($mail)) {
-                //$feedback = "Your message has been successfully sent";
-                //echo '<div class="alert alert-success" role="alert">'.$feedback.'</div>';
-              //} ?>-->
+            <form action="https://formspree.io/kingsley.c.williams@gmail.com" id="myContact" name="myForm" method="post">
               <h4>Leave a message</h4>
-              <input type="text" class="form-control contact-form label_better" data-position="top" name="name" placeholder="Name" required>
-              <input type="email" class="form-control contact-form label_better" data-position="top" name="email" placeholder="Email" required>
-              <input type="tel" class="form-control contact-form label_better" data-position="top" name="phone" placeholder="Phone" required>
-              <textarea class="form-control contact-form label_better" data-position="top" rows="2" name="msg" placeholder="Message here" required></textarea>
+              <input type="text" class="form-control contact-form label_better" data-position="top" name="name" placeholder="Name*" required>
+              <input type="email" class="form-control contact-form label_better" data-position="top" name="_replyto" placeholder="Email*" required>
+              <input type="tel" class="form-control contact-form label_better" data-position="top" name="phone" placeholder="Phone">
+              <textarea class="form-control contact-form label_better" data-position="top" rows="2" name="msg" placeholder="Message here*" required></textarea>
               <button type="submit" class="btn btn-success center-block" name="submit">Submit</button>
             </form>
           </div>
@@ -579,16 +573,6 @@
       </div>
     </section>
     
-    <!--footer section 
-    <section class="footer">
-      <div class="container">
-        <div class="row">
-          <div>
-            
-          </div>
-        </div>
-      </div>
-    </section>-->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
@@ -604,32 +588,7 @@
       /*$(".edu_section").mouseenter(function(){
         $(".edu_ul").fadeIn(2000);
       });*/
-
-      //Contact Form Ajax submit
-      $("#feedback_success").hide();
-      $("#feedback_error").hide();
-      $("form#myContact").submit( function(){
-        $.post("contact.php", {
-          /*name: myForm.name.value,
-          email: myForm.email.value,
-          phone: myForm.phone.value,
-          msg: myForm.msg.value*/
-          name: $("input[name='name']").val(), 
-          email: $("input[name='email']").val(), 
-          phone: $("input[name='phone']").val(),
-          msg: $("textarea").val()
-        }, 
-        function(result){
-          $("#feedback_success").hide();
-          $("#feedback_error").hide();
-          if (result == "Please fill all columns") {
-            $("#feedback_error").html(result).show();
-          }else if(result == "Your message has been successfully sent"){
-            $("#feedback_success").html(result).show();
-          }
-        });
-        return false;
-      });
+      
 
       //Flipping text
       $(".intro").flipping_text({
@@ -647,26 +606,9 @@
         easing: "linear",
         offset: 65
       });
-
-      /*$(function() {
-        $("a").click(function() {
-          if (this.hash) {
-            var hash = this.hash.substr(1);
-            var $toElement = $("a[name"+hash+"]");
-            var toPosition = $toElement.position().top;
-            //Scroll/animate to that element
-            $("body,html").animate({
-              scrollTop : toPositiion
-            }, 2000);
-            //don't do jump
-            return false;
-          }
-        });
-      });*/
       
       $(function() {
         /* Smooth scroll */
-        //$('a[href*=#]:not([href=#])').click(function() {
         $('a[href*=#]:not([href=#myCarousel])').click(function () {
           if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
             var target = $(this.hash);
